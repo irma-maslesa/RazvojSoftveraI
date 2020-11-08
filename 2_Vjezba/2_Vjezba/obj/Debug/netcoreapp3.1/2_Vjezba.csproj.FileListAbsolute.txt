@@ -148,3 +148,6 @@ D:\OneDrive - Faculty of Information Technologies\Desktop\RazvojSoftveraI\2_Vjez
 D:\OneDrive - Faculty of Information Technologies\Desktop\RazvojSoftveraI\2_Vjezba\2_Vjezba\obj\Debug\netcoreapp3.1\2_Vjezba.pdb
 D:\OneDrive - Faculty of Information Technologies\Desktop\RazvojSoftveraI\2_Vjezba\2_Vjezba\obj\Debug\netcoreapp3.1\2_Vjezba.genruntimeconfig.cache
 D:\OneDrive - Faculty of Information Technologies\Desktop\RazvojSoftveraI\2_Vjezba\2_Vjezba\obj\Debug\netcoreapp3.1\Razor\Views\Student\Prikaz.cshtml.g.cs
+D:\OneDrive - Faculty of Information Technologies\Desktop\RazvojSoftveraI\2_Vjezba\2_Vjezba\obj\Debug\netcoreapp3.1\Razor\Views\Student\Dodaj.cshtml.g.cs
+D:\OneDrive - Faculty of Information Technologies\Desktop\RazvojSoftveraI\2_Vjezba\2_Vjezba\obj\Debug\netcoreapp3.1\Razor\Views\Student\DodajPoruka.cshtml.g.cs
+D:\OneDrive - Faculty of Information Technologies\Desktop\RazvojSoftveraI\2_Vjezba\2_Vjezba\obj\Debug\netcoreapp3.1\Razor\Views\Student\ObrisiPoruka.cshtml.g.cs

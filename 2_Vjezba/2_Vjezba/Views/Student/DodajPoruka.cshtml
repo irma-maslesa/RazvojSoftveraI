@@ -1,0 +1,13 @@
+﻿@using _2_Vjezba.EntityModels
+
+@{
+    ViewData["Title"] = "DodajPoruka";
+    //var student = (Student) TempData["Student"];
+    var student = (Student)ViewData["Student"];
+}
+
+<div class="alert alert-success text-center">Student @student.Ime @student.Prezime (@student.BrojIndeksa) je uspješno dodan!</div>
+
+<button class="btn btn-outline-secondary btn-lg btn-block" type="button" onclick="window.location='/Student/Prikaz'">Pogledaj listu studenata</button>
+
+<button class="btn btn-outline-secondary btn-lg btn-block" type="button" onclick="window.location='/Student/Dodaj'">Dodaj novog studenta</button>
