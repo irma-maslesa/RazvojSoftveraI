@@ -1,0 +1,22 @@
+@model Vjezbe.Models.OpsegParametarModel
+
+<html>
+<head>
+    <link rel="stylesheet" href="~/css/site.css"/>
+</head>
+<body>
+    <p>
+        Rezultat sume opsega je
+    </p>
+
+
+    @for (int i = Model.pocetak; i < Model.kraj; i++) { 
+        <span class= "elementOpsega">@i  +</span> 
+     }
+        
+
+    <span class= "rezultatSume"> = @(Model.suma) </span>
+</body>
+
+<script src="~/js/site.js"></script>
+</html>
