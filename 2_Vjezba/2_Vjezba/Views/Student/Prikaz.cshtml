@@ -11,10 +11,11 @@
 <form>
     <div class="row">
         <div class="input-group col">
-            <input class="form-control" name="filter" value="@filter"/>
+            <input class="form-control" name="filter" value="@filter" />
             <div class="input-group-append">
                 <input class="btn btn-outline-secondary" type="submit" value="Pretraži" />
             </div>
+            <button class="btn btn-outline-secondary col" type="button" onclick="window.location='/Student/Dodaj'">Dodaj studenta</button>
         </div>
     </div>
 </form>
@@ -30,6 +31,7 @@
             <th>Prezime</th>
             <th>Općina rođenja</th>
             <th>Općina prebivališta</th>
+            <th>Opcije</th>
         </tr>
 
     </thead>
@@ -37,14 +39,17 @@
     <tbody class="text-center">
         @foreach (Student s in studenti)
         {
-            <tr>
-                <td>@s.ID</td>
-                <td>@s.BrojIndeksa</td>
-                <td>@s.Ime</td>
-                <td>@s.Prezime</td>
-                <td>@s.OpcinaRodjenja?.Naziv</td>
-                <td>@s.OpcinaPrebivalista?.Naziv</td>
-            </tr>
+        <tr>
+            <td>@s.ID</td>
+            <td>@s.BrojIndeksa</td>
+            <td>@s.Ime</td>
+            <td>@s.Prezime</td>
+            <td>@s.OpcinaRodjenja.Naziv</td>
+            <td>@s.OpcinaPrebivalista.Naziv</td>
+            <td>
+                <button class="btn btn-outline-danger col" type="button" onclick="window.location='/Student/Obrisi?sID=@s.ID'">Obriši</button>
+            </td>
+        </tr>
         }
     </tbody>
 

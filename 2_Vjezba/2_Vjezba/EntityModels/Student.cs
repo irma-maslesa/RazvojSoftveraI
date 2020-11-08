@@ -12,10 +12,10 @@ namespace _2_Vjezba.EntityModels
         public string Ime { get; set; }
         public string Prezime { get; set; }
 
-        public int? OpcinaRodjenjaID { get; set; }
+        public int OpcinaRodjenjaID { get; set; }
         public Opcina OpcinaRodjenja { get; set; }
 
-        public int? OpcinaPrebivalistaID { get; set; }
+        public int OpcinaPrebivalistaID { get; set; }
         public Opcina OpcinaPrebivalista { get; set; }
     }
 }

@@ -1,0 +1,66 @@
+﻿@using _2_Vjezba.EntityModels
+
+@{
+    ViewData["Title"] = "Dodaj";
+    var opcine = (List<Opcina>) ViewData["Opcine"];
+}
+
+<h1 class="display-4">Dodavanje novog studenta</h1>
+
+<form action="/Student/Snimi">
+    <div class="row">
+        <div class="col">
+            <label>Broj indeksa</label>
+            <input class="form-control" name="BrojIndeksa" />
+        </div>
+    </div>
+
+    <br />
+
+    <div class="row">
+        <div class="col">
+            <label>Ime</label>
+            <input class="form-control" name="Ime" />
+        </div>
+        <div class="col">
+            <label>Prezime</label>
+            <input class="form-control" name="Prezime" />
+        </div>
+    </div>
+
+    <br />
+
+    <div class="row">
+        <div class="col">
+            <label>Opština rođenja</label>
+            <select class="custom-select" name="OpcinaRodjenjaID">
+                @foreach (var opcina in opcine)
+                {
+                    <option value="@opcina.ID">@opcina.Naziv</option>
+                }
+            </select>
+        </div>
+        <div class="col">
+            <label>Opština prebivališta</label>
+            <select class="custom-select" name="OpcinaPrebivalistaID">
+                @foreach (var opcina in opcine)
+                {
+                    <option value="@opcina.ID">@opcina.Naziv</option>
+                }
+            </select>
+        </div>
+    </div>
+
+    <br />
+
+    <div>
+        <input class="btn btn-dark" type="submit" value="Sačuvaj" />
+    </div>
+</form>
+
+<br />
+
+<div>
+    <button class="btn btn-outline-secondary" onclick="window.location='/Student/Prikaz'">Odustani</button>
+</div>
+
