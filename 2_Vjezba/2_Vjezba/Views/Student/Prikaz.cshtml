@@ -1,0 +1,51 @@
+﻿@using _2_Vjezba.EntityModels
+
+@{
+    ViewData["Title"] = "Prikaz";
+    List<Student> studenti = (List<Student>) ViewData["Studenti"];
+    string filter = (string) ViewData["Filter"];
+}
+
+<h1 class="display-4">Pregled liste studenata</h1>
+
+<form>
+    <div class="row">
+        <div class="input-group col">
+            <input class="form-control" name="filter" value="@filter"/>
+            <div class="input-group-append">
+                <input class="btn btn-outline-secondary" type="submit" value="Pretraži" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<br/>
+
+<table class="table table-hover">
+    <thead class="thead-dark text-center">
+        <tr>
+            <th>ID</th>
+            <th>Broj indeksa</th>
+            <th>Ime</th>
+            <th>Prezime</th>
+            <th>Općina rođenja</th>
+            <th>Općina prebivališta</th>
+        </tr>
+
+    </thead>
+
+    <tbody class="text-center">
+        @foreach (Student s in studenti)
+        {
+            <tr>
+                <td>@s.ID</td>
+                <td>@s.BrojIndeksa</td>
+                <td>@s.Ime</td>
+                <td>@s.Prezime</td>
+                <td>@s.OpcinaRodjenja.Naziv</td>
+                <td>@s.OpcinaPrebivalista?.Naziv</td>
+            </tr>
+        }
+    </tbody>
+
+</table>
