@@ -10,7 +10,7 @@ using _2_Vjezba.DBContext;
 namespace _2_Vjezba.Migrations
 {
     [DbContext(typeof(MojDBC))]
-    [Migration("20201108124805_InicijalnaBaza")]
+    [Migration("20201108143159_InicijalnaBaza")]
     partial class InicijalnaBaza
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
