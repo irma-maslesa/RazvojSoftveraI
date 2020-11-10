@@ -2,8 +2,8 @@
 
 @{
     ViewData["Title"] = "Prikaz";
-    List<Student> studenti = (List<Student>) ViewData["Studenti"];
-    string filter = (string) ViewData["Filter"];
+    List<Student> studenti = (List<Student>)ViewData["Studenti"];
+    string filter = (string)ViewData["Filter"];
 }
 
 <h1 class="display-4">Pregled liste studenata</h1>
@@ -13,14 +13,14 @@
         <div class="input-group col">
             <input class="form-control" name="filter" value="@filter" />
             <div class="input-group-append">
-                <input class="btn btn-outline-secondary" type="submit" value="Pretraži" />
+                <input class="btn btn-outline-secondary rounded" type="submit" value="Pretraži" />
             </div>
-            <button class="btn btn-outline-secondary col" type="button" onclick="window.location='/Student/Dodaj'">Dodaj studenta</button>
+            <button class="btn btn-outline-secondary col-5 ml-2" type="button" onclick="window.location='/Student/DodajUredi'">Dodaj studenta</button>
         </div>
     </div>
 </form>
 
-<br/>
+<br />
 
 <table class="table table-hover">
     <thead class="thead-dark text-center">
@@ -39,17 +39,20 @@
     <tbody class="text-center">
         @foreach (Student s in studenti)
         {
-        <tr>
-            <td>@s.ID</td>
-            <td>@s.BrojIndeksa</td>
-            <td>@s.Ime</td>
-            <td>@s.Prezime</td>
-            <td>@s.OpcinaRodjenja.Naziv</td>
-            <td>@s.OpcinaPrebivalista.Naziv</td>
-            <td>
-                <button class="btn btn-outline-danger col" type="button" onclick="window.location='/Student/Obrisi?sID=@s.ID'">Obriši</button>
-            </td>
-        </tr>
+            <tr>
+                <td class="align-middle">@s.ID</td>
+                <td class="align-middle">@s.BrojIndeksa</td>
+                <td class="align-middle">@s.Ime</td>
+                <td class="align-middle">@s.Prezime</td>
+                <td class="align-middle">@s.OpcinaRodjenja.Naziv</td>
+                <td class="align-middle">@s.OpcinaPrebivalista.Naziv</td>
+                <td>
+                    <div class="btn-group">
+                        <button class="btn btn-outline-primary col mr-1" type="button" onclick="window.location='/Student/DodajUredi?sID=@s.ID'">Uredi</button>
+                        <button class="btn btn-outline-danger col" type="button" onclick="window.location='/Student/Obrisi?sID=@s.ID'">Obriši</button>
+                    </div>
+                </td>
+            </tr>
         }
     </tbody>
 
