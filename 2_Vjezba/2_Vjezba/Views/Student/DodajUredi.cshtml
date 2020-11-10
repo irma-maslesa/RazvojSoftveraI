@@ -1,0 +1,84 @@
+﻿@using _2_Vjezba.EntityModels
+
+@{
+    ViewData["Title"] = "Modifikacija liste studenata";
+    var opcine = (List<Opcina>)ViewData["Opcine"];
+    var student = (Student)ViewData["Student"];
+
+}
+
+<h1 class="display-4">Modifikcija liste studenata</h1>
+
+<form action="/Student/Snimi">
+    <input class="form-control" name="sID" value="@student.ID" hidden/>
+
+    <div class="row">
+        <div class="col">
+            <label>Broj indeksa</label>
+            <input class="form-control" name="BrojIndeksa" value="@student.BrojIndeksa" />
+        </div>
+    </div>
+
+    <br />
+
+    <div class="row">
+        <div class="col">
+            <label>Ime</label>
+            <input class="form-control" name="Ime" value="@student.Ime" />
+        </div>
+        <div class="col">
+            <label>Prezime</label>
+            <input class="form-control" name="Prezime" value="@student.Prezime" />
+        </div>
+    </div>
+
+    <br />
+
+    <div class="row">
+        <div class="col">
+            <label>Općina rođenja</label>
+            <select class="custom-select" name="OpcinaRodjenjaID">
+                @foreach (var opcina in opcine)
+                {
+                    if (opcina.ID == student.OpcinaRodjenjaID)
+                    {
+                        <option value="@opcina.ID" selected>@opcina.Naziv </option>
+                    }
+                    else
+                    {
+                        <option value="@opcina.ID">@opcina.Naziv </option>
+                    }
+                }
+            </select>
+        </div>
+        <div class="col">
+            <label>Općina prebivališta</label>
+            <select class="custom-select" name="OpcinaPrebivalistaID">
+                @foreach (var opcina in opcine)
+                {
+                    if (opcina.ID == student.OpcinaPrebivalistaID)
+                    {
+                        <option value="@opcina.ID" selected>@opcina.Naziv </option>
+                    }
+                    else
+                    {
+                        <option value="@opcina.ID">@opcina.Naziv </option>
+                    }
+                }
+            </select>
+        </div>
+    </div>
+
+    <br />
+
+    <div>
+        <input class="btn btn-dark" type="submit" value="Sačuvaj" />
+    </div>
+</form>
+
+<br />
+
+<div>
+    <button class="btn btn-outline-secondary" onclick="window.location='/Student/Prikaz'">Odustani</button>
+</div>
+
