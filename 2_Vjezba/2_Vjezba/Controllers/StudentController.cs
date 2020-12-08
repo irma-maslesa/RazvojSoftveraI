@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using _2_Vjezba.DBContext;
 using _2_Vjezba.EntityModels;
+using _2_Vjezba.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,18 +16,23 @@ namespace _2_Vjezba.Controllers
         {
             MojDBC db = new MojDBC();
 
-            ViewData["Studenti"] = db.Student //SELECT * FROM Student
-                                        .Where(s => filter == null || filter == "" ||       //WHERE ...
-                                               (s.BrojIndeksa.ToLower().StartsWith(filter.ToLower()) ||
-                                                (s.Ime + " " + s.Prezime).ToLower().StartsWith(filter.ToLower()) ||
-                                                 (s.Prezime + " " + s.Ime).ToLower().StartsWith(filter.ToLower())))
-                                        .Include(navigationPropertyPath: s => s.OpcinaRodjenja) //JOIN Opcina ON ...
-                                        .Include(navigationPropertyPath: s => s.OpcinaPrebivalista) //JOIN Opcina ON ...
+            StudentPrikazVM model = new StudentPrikazVM();
+            
+            List<StudentPrikazVM.Row> studenti = db.Student //SELECT * FROM Student
+                           .Where(s => filter == null || filter == "" ||       //WHERE ...
+                                 (s.BrojIndeksa.ToLower().StartsWith(filter.ToLower()) ||
+                                 (s.Ime + " " + s.Prezime).ToLower().StartsWith(filter.ToLower()) ||
+                                 (s.Prezime + " " + s.Ime).ToLower().StartsWith(filter.ToLower())))
+                           //.Include(navigationPropertyPath: s => s.OpcinaRodjenja) //JOIN Opcina ON ...
+                           //.Include(navigationPropertyPath: s => s.OpcinaPrebivalista) //JOIN Opcina ON ...
+                           .Select(s => new StudentPrikazVM.Row(s))
+                           .ToList();
 
-                                        .ToList();
-            ViewData["Filter"] = filter;
-
-            return View();
+            model.studenti = studenti;
+            //ViewData["Filter"] = filter;
+            model.filter = filter;
+            
+            return View(model);
         }
 
         public IActionResult DodajUredi(int sID)

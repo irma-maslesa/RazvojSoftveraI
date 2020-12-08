@@ -1,0 +1,11 @@
+D:\OneDrive - Faculty of Information Technologies\Desktop\RazvojSoftveraI\2_Vjezba\Podaci\bin\Debug\netcoreapp3.1\Podaci.deps.json
+D:\OneDrive - Faculty of Information Technologies\Desktop\RazvojSoftveraI\2_Vjezba\Podaci\bin\Debug\netcoreapp3.1\Podaci.dll
+D:\OneDrive - Faculty of Information Technologies\Desktop\RazvojSoftveraI\2_Vjezba\Podaci\bin\Debug\netcoreapp3.1\Podaci.pdb
+D:\OneDrive - Faculty of Information Technologies\Desktop\RazvojSoftveraI\2_Vjezba\Podaci\obj\Debug\netcoreapp3.1\Podaci.AssemblyInfoInputs.cache
+D:\OneDrive - Faculty of Information Technologies\Desktop\RazvojSoftveraI\2_Vjezba\Podaci\obj\Debug\netcoreapp3.1\Podaci.AssemblyInfo.cs
+D:\OneDrive - Faculty of Information Technologies\Desktop\RazvojSoftveraI\2_Vjezba\Podaci\obj\Debug\netcoreapp3.1\Podaci.csproj.CoreCompileInputs.cache
+D:\OneDrive - Faculty of Information Technologies\Desktop\RazvojSoftveraI\2_Vjezba\Podaci\obj\Debug\netcoreapp3.1\Podaci.dll
+D:\OneDrive - Faculty of Information Technologies\Desktop\RazvojSoftveraI\2_Vjezba\Podaci\obj\Debug\netcoreapp3.1\Podaci.pdb
+D:\OneDrive - Faculty of Information Technologies\Desktop\RazvojSoftveraI\2_Vjezba\Podaci\bin\Debug\netcoreapp3.1\Podaci.runtimeconfig.json
+D:\OneDrive - Faculty of Information Technologies\Desktop\RazvojSoftveraI\2_Vjezba\Podaci\bin\Debug\netcoreapp3.1\Podaci.runtimeconfig.dev.json
+D:\OneDrive - Faculty of Information Technologies\Desktop\RazvojSoftveraI\2_Vjezba\Podaci\obj\Debug\netcoreapp3.1\Podaci.genruntimeconfig.cache
