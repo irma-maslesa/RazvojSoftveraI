@@ -1,21 +1,26 @@
 ﻿@using _2_Vjezba.EntityModels
+@using _2_Vjezba.Helper
+@model StudentDodajUrediVM
 
 @{
     ViewData["Title"] = "Modifikacija liste studenata";
-    var opcine = (List<Opcina>)ViewData["Opcine"];
-    var student = (Student)ViewData["Student"];
+    //var opcine = (List<Opcina>)ViewData["Opcine"];
+    //var student = (Student)ViewData["Student"];
 
 }
 
 <h1 class="display-4">Modifikcija liste studenata</h1>
 
-<form action="/Student/Snimi" method="post">
-    <input class="form-control" name="sID" value="@student.ID" hidden/>
+@*<form action="/Student/Snimi" method="post">*@
+<form asp-action="Snimi" asp-controller="Student">
+    @*<input class="form-control" name="sID" value="@Model.ID" hidden/>*@
+    <input readonly hidden class="form-control" asp-for="ID" />
 
     <div class="row">
         <div class="col">
             <label>Broj indeksa</label>
-            <input class="form-control" name="BrojIndeksa" value="@student.BrojIndeksa" />
+            @*<input class="form-control" name="BrojIndeksa" value="@Model.BrojIndeksa" />*@
+            <input class="form-control" asp-for="BrojIndeksa" />
         </div>
     </div>
 
@@ -24,11 +29,13 @@
     <div class="row">
         <div class="col">
             <label>Ime</label>
-            <input class="form-control" name="Ime" value="@student.Ime" />
+            @*<input class="form-control" name="Ime" value="@Model.Ime" />*@
+            <input class="form-control" asp-for="Ime" />
         </div>
         <div class="col">
             <label>Prezime</label>
-            <input class="form-control" name="Prezime" value="@student.Prezime" />
+            @*<input class="form-control" name="Prezime" value="@Model.Prezime" />*@
+            <input class="form-control" asp-for="Prezime" />
         </div>
     </div>
 
@@ -37,34 +44,37 @@
     <div class="row">
         <div class="col">
             <label>Općina rođenja</label>
-            <select class="custom-select" name="OpcinaRodjenjaID">
-                @foreach (var opcina in opcine)
-                {
-                    if (opcina.ID == student.OpcinaRodjenjaID)
+            @*<select class="custom-select" name="OpcinaRodjenjaID">*@
+            <select class="custom-select" asp-for="OpcinaRodjenjaID" asp-items="Model.Opcine">
+                @*@foreach (ComboBoxVM opcina in Model.Opcine)
                     {
-                        <option value="@opcina.ID" selected>@opcina.Naziv </option>
-                    }
-                    else
-                    {
-                        <option value="@opcina.ID">@opcina.Naziv </option>
-                    }
-                }
+                        if (opcina.ID == Model.OpcinaRodjenjaID)
+                        {
+                            <option value="@opcina.ID" selected>@opcina.Naziv </option>
+                        }
+                        else
+                        {
+                            <option value="@opcina.ID">@opcina.Naziv </option>
+                        }
+                    }*@
             </select>
         </div>
         <div class="col">
             <label>Općina prebivališta</label>
-            <select class="custom-select" name="OpcinaPrebivalistaID">
-                @foreach (var opcina in opcine)
-                {
-                    if (opcina.ID == student.OpcinaPrebivalistaID)
+            @*<select class="custom-select" name="OpcinaPrebivalistaID">*@
+            <select class="custom-select" asp-for="OpcinaPrebivalistaID" asp-items="Model.Opcine">
+                @*@foreach (ComboBoxVM opcina in Model.Opcine)
                     {
-                        <option value="@opcina.ID" selected>@opcina.Naziv </option>
-                    }
-                    else
-                    {
-                        <option value="@opcina.ID">@opcina.Naziv </option>
-                    }
-                }
+                        if (opcina.ID == Model.OpcinaPrebivalistaID)
+                        {
+                            <option value="@opcina.ID" selected>@opcina.Naziv </option>
+                        }
+                        else
+                        {
+                            <option value="@opcina.ID">@opcina.Naziv </option>
+                        }
+                    }*@
+
             </select>
         </div>
     </div>

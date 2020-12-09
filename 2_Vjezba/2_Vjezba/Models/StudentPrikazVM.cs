@@ -18,14 +18,9 @@ namespace _2_Vjezba.Models
             public string OpcinaRodjenja { get; set; }
             public string OpcinaPrebivalista { get; set; }
 
-            public Row(Student student)
+            public Row()
             {
-                ID = student.ID;
-                BrojIndeksa = student.BrojIndeksa;
-                Ime = student.Ime;
-                Prezime = student.Prezime;
-                OpcinaRodjenja = student.OpcinaRodjenja.Naziv;
-                OpcinaPrebivalista = student.OpcinaPrebivalista.Naziv;
+                
             }
         }
 

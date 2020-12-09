@@ -9,3 +9,4 @@ D:\OneDrive - Faculty of Information Technologies\Desktop\RazvojSoftveraI\2_Vjez
 D:\OneDrive - Faculty of Information Technologies\Desktop\RazvojSoftveraI\2_Vjezba\Podaci\bin\Debug\netcoreapp3.1\Podaci.runtimeconfig.json
 D:\OneDrive - Faculty of Information Technologies\Desktop\RazvojSoftveraI\2_Vjezba\Podaci\bin\Debug\netcoreapp3.1\Podaci.runtimeconfig.dev.json
 D:\OneDrive - Faculty of Information Technologies\Desktop\RazvojSoftveraI\2_Vjezba\Podaci\obj\Debug\netcoreapp3.1\Podaci.genruntimeconfig.cache
+D:\OneDrive - Faculty of Information Technologies\Desktop\RazvojSoftveraI\2_Vjezba\Podaci\obj\Debug\netcoreapp3.1\Podaci.csprojAssemblyReference.cache
