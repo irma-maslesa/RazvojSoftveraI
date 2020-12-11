@@ -16,7 +16,6 @@ namespace _2_Vjezba.Models
         public string BrojIndeksa { get; set; }
         public int OpcinaRodjenjaID { get; set; }
         public int OpcinaPrebivalistaID { get; set; }
-        //public List<ComboBoxVM> Opcine;
         public List<SelectListItem> Opcine; //da bi se moglo koristiti asp-items
     }
 }

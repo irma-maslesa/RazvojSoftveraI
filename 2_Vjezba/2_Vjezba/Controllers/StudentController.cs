@@ -25,8 +25,6 @@ namespace _2_Vjezba.Controllers
                                  (s.BrojIndeksa.ToLower().StartsWith(filter.ToLower()) ||
                                  (s.Ime + " " + s.Prezime).ToLower().StartsWith(filter.ToLower()) ||
                                  (s.Prezime + " " + s.Ime).ToLower().StartsWith(filter.ToLower())))
-                           //.Include(navigationPropertyPath: s => s.OpcinaRodjenja) //JOIN Opcina ON ...
-                           //.Include(navigationPropertyPath: s => s.OpcinaPrebivalista) //JOIN Opcina ON ...
                            .Select(s => new StudentPrikazVM.Row
                            {
                                ID = s.ID,
@@ -39,7 +37,6 @@ namespace _2_Vjezba.Controllers
                            .ToList();
 
             model.studenti = studenti;
-            //ViewData["Filter"] = filter;
             model.filter = filter;
 
             return View(model);
@@ -48,13 +45,6 @@ namespace _2_Vjezba.Controllers
         public IActionResult DodajUredi(int sID)
         {
             MojDBC db = new MojDBC();
-
-            //ViewData["Opcine"] = db.Opcina.OrderBy(a => a.Naziv).ToList();
-
-            //List<ComboBoxVM> opcine = db.Opcina
-            //                        .OrderBy(a => a.Naziv)
-            //                        .Select(o => new ComboBoxVM { ID = o.ID, Naziv = o.Naziv })
-            //                        .ToList();
 
             List<SelectListItem> opcine = db.Opcina
                                         .OrderBy(o => o.Naziv)
@@ -65,7 +55,6 @@ namespace _2_Vjezba.Controllers
                                         })
                                         .ToList();
 
-            //ViewData["Student"] = sID == 0 ? new Student() : db.Student.Find(sID);
             StudentDodajUrediVM student = sID == 0 ?
                                     new StudentDodajUrediVM() :
                                     db.Student.Where(s => sID == s.ID)
@@ -83,7 +72,6 @@ namespace _2_Vjezba.Controllers
             return View(student);
         }
 
-        //public IActionResult Snimi(int sID, string BrojIndeksa, string Ime, string Prezime, int OpcinaRodjenjaID, int OpcinaPrebivalistaID)
         public IActionResult Snimi(StudentDodajUrediVM s)
         {
             MojDBC db = new MojDBC();
@@ -112,10 +100,6 @@ namespace _2_Vjezba.Controllers
 
             db.SaveChanges(); //INSERT INTO Student VALUE ...
 
-            //TempData se moze koristiti za prebacivanje podataka iz akcije u akciju ili iz akcije u view.
-            //Kod TempData podaci ostaju sačuvani i kada se radi redirekcija, a kod ViewData ne.
-            //TempData["Student"] = student;
-
             TempData["Poruka"] += $"{student.Ime} {student.Prezime} ({student.BrojIndeksa})";
             return Redirect(url: "/Student/Poruka?sID=" + student.ID);
         }
@@ -136,6 +120,19 @@ namespace _2_Vjezba.Controllers
             TempData["Poruka"] = $"Uspješno ste obrisali studenta {s.Ime} {s.Prezime} ({s.BrojIndeksa})";
 
             return Redirect(url: "/Student/Poruka");
+        }
+
+        public IActionResult Detalji(int sID)
+        {
+            MojDBC db = new MojDBC();
+            List<StudentDetaljiVM> detalji = db.Ocjene.Where(o => o.StudentID == sID)
+                                            .Select(o => new StudentDetaljiVM
+                                            {
+                                                NazivPredmeta = o.Predmet.Naziv,
+                                                OcjenaBroj = o.OcjenaBroj,
+                                                Datum = o.Datum
+                                            }).ToList();
+            return View(detalji);
         }
     }
 }
