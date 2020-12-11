@@ -154,3 +154,4 @@ D:\OneDrive - Faculty of Information Technologies\Desktop\RazvojSoftveraI\2_Vjez
 D:\OneDrive - Faculty of Information Technologies\Desktop\RazvojSoftveraI\2_Vjezba\2_Vjezba\obj\Debug\netcoreapp3.1\2_Vjezba.dll
 D:\OneDrive - Faculty of Information Technologies\Desktop\RazvojSoftveraI\2_Vjezba\2_Vjezba\obj\Debug\netcoreapp3.1\2_Vjezba.pdb
 D:\OneDrive - Faculty of Information Technologies\Desktop\RazvojSoftveraI\2_Vjezba\2_Vjezba\obj\Debug\netcoreapp3.1\2_Vjezba.genruntimeconfig.cache
+D:\OneDrive - Faculty of Information Technologies\Desktop\RazvojSoftveraI\2_Vjezba\2_Vjezba\obj\Debug\netcoreapp3.1\Razor\Views\Student\Detalji.cshtml.g.cs

@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\2_Vjezba\2_Vjezba.csproj" />
     <ProjectReference Include="..\Podaci\Podaci.csproj" />
   </ItemGroup>
 

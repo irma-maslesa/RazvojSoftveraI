@@ -3,12 +3,9 @@
 
 @{
     ViewData["Title"] = "Prikaz";
-    //List<Student> studenti = (List<Student>)ViewData["Studenti"];
-    //StudentPrikazVM m = Model; --Mozemo koristiti samo varijablu Model
-    //string filter = (string)ViewData["Filter"];
 }
 
-<h1 class="display-4">Pregled liste studenata</h1>
+<h1 class="display-3">Pregled liste studenata</h1>
 
 <form>
     <div class="row">
@@ -52,10 +49,48 @@
                     <div class="btn-group">
                         <button class="btn btn-outline-primary col mr-1" type="button" onclick="window.location='/Student/DodajUredi?sID=@s.ID'">Uredi</button>
                         <button class="btn btn-outline-danger col" type="button" onclick="window.location='/Student/Obrisi?sID=@s.ID'">Obriši</button>
+                        <button class="btn btn-outline-info col ml-1" type="button" onclick="PrikaziDetalje(@s.ID)">Detalji</button>
                     </div>
                 </td>
             </tr>
         }
     </tbody>
-
 </table>
+
+<br/>
+
+<div id="detalji"></div>
+
+<script>
+    //AJAX poziv - učitava dio stranice on demand 
+    function PrikaziDetalje(sID) {
+        //alert("ID studenta je " + sID);
+
+        var url = "/Student/Detalji?sID=" + sID;
+
+        //1. NACIN
+
+        //var httpReq = new XMLHttpRequest();
+        //httpReq.onreadystatechange = function () {
+        //    if (this.readyState == 4 && this.status == 200)
+        //        document.getElementById("detalji").innerHTML = httpReq.responseText;
+        //};
+        //httpReq.open("GET", url, true);
+        //httpReq.send();
+
+
+        //2. NACIN
+
+        var httpReq = new XMLHttpRequest();
+        httpReq.onload = function () {
+            if (this.status === 200) 
+                document.getElementById("detalji").innerHTML = httpReq.responseText;
+            else {
+                alert("Došlo je do greške.");
+            }
+        }
+        httpReq.open("GET", url, true);
+        httpReq.send();
+    }
+</script>
+

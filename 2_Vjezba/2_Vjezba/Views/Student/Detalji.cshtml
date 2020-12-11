@@ -1,0 +1,33 @@
+﻿@using _2_Vjezba.EntityModels
+@model List<StudentDetaljiVM>
+
+@{
+    ViewData["Title"] = "Prikaz";
+    Layout = null;
+}
+
+<h1 class="display-4">Detalji o studentu</h1>
+
+<br/>
+<table class="table table-hover">
+    <thead class="thead-dark text-center">
+        <tr>
+            <th>Predmet</th>
+            <th>Ocjena</th>
+            <th>Datum</th>
+        </tr>
+
+    </thead>
+
+    <tbody class="text-center">
+        @foreach (StudentDetaljiVM s in Model)
+        {
+            <tr>
+                <td class="align-middle">@s.NazivPredmeta</td>
+                <td class="align-middle">@s.OcjenaBroj</td>
+                <td class="align-middle">@s.Datum.ToString("dd.MM.yyyy")</td>
+            </tr>
+        }
+    </tbody>
+
+</table>
