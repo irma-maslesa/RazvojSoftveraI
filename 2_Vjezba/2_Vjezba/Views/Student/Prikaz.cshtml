@@ -1,9 +1,11 @@
 ﻿@using _2_Vjezba.EntityModels
+@model StudentPrikazVM
 
 @{
     ViewData["Title"] = "Prikaz";
-    List<Student> studenti = (List<Student>)ViewData["Studenti"];
-    string filter = (string)ViewData["Filter"];
+    //List<Student> studenti = (List<Student>)ViewData["Studenti"];
+    //StudentPrikazVM m = Model; --Mozemo koristiti samo varijablu Model
+    //string filter = (string)ViewData["Filter"];
 }
 
 <h1 class="display-4">Pregled liste studenata</h1>
@@ -11,7 +13,7 @@
 <form>
     <div class="row">
         <div class="input-group col">
-            <input class="form-control" name="filter" value="@filter" />
+            <input class="form-control" name="filter" value="@Model.filter" />
             <div class="input-group-append">
                 <input class="btn btn-outline-secondary rounded" type="submit" value="Pretraži" />
             </div>
@@ -37,15 +39,15 @@
     </thead>
 
     <tbody class="text-center">
-        @foreach (Student s in studenti)
+        @foreach (StudentPrikazVM.Row s in Model.studenti)
         {
             <tr>
                 <td class="align-middle">@s.ID</td>
                 <td class="align-middle">@s.BrojIndeksa</td>
                 <td class="align-middle">@s.Ime</td>
                 <td class="align-middle">@s.Prezime</td>
-                <td class="align-middle">@s.OpcinaRodjenja.Naziv</td>
-                <td class="align-middle">@s.OpcinaPrebivalista.Naziv</td>
+                <td class="align-middle">@s.OpcinaRodjenja</td>
+                <td class="align-middle">@s.OpcinaPrebivalista</td>
                 <td>
                     <div class="btn-group">
                         <button class="btn btn-outline-primary col mr-1" type="button" onclick="window.location='/Student/DodajUredi?sID=@s.ID'">Uredi</button>
