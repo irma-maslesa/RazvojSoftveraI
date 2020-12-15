@@ -14,12 +14,14 @@
             <div class="input-group-append">
                 <input class="btn btn-outline-secondary rounded" type="submit" value="Pretraži" />
             </div>
-            <button class="btn btn-outline-secondary col-5 ml-2" type="button" onclick="window.location='/Student/DodajUredi'">Dodaj studenta</button>
+            <button class="btn btn-outline-secondary col-3 ml-2 mr-2" type="button" onclick="window.location='/Student/DodajUredi'">Dodaj studenta</button>
+            <button class="btn btn-outline-secondary col-3" type="button" onclick="window.location='/TestniPodaci/GenerisiPodatke'">Generiši podatke</button>
         </div>
     </div>
 </form>
 
 <br />
+
 
 <table class="table table-hover">
     <thead class="thead-dark text-center">
@@ -49,7 +51,8 @@
                     <div class="btn-group">
                         <button class="btn btn-outline-primary col mr-1" type="button" onclick="window.location='/Student/DodajUredi?sID=@s.ID'">Uredi</button>
                         <button class="btn btn-outline-danger col" type="button" onclick="window.location='/Student/Obrisi?sID=@s.ID'">Obriši</button>
-                        <button class="btn btn-outline-info col ml-1" type="button" onclick="PrikaziDetalje(@s.ID)">Detalji</button>
+                        <button class="btn btn-outline-info col ml-1 mr-1" type="button" onclick="PrikaziOcjene(@s.ID)">Ocjene</button>
+                        <button class="btn btn-outline-info col" type="button" onclick="PrikaziPrisustvo(@s.ID)">Prisustvo</button>
                     </div>
                 </td>
             </tr>
@@ -57,40 +60,41 @@
     </tbody>
 </table>
 
-<br/>
+<br />
 
-<div id="detalji"></div>
+<div id="informacije"></div>
 
 <script>
-    //AJAX poziv - učitava dio stranice on demand 
-    function PrikaziDetalje(sID) {
-        //alert("ID studenta je " + sID);
+    //AJAX poziv - učitava dio stranice on demand
+    function PrikaziOcjene(sID) {
 
-        var url = "/Student/Detalji?sID=" + sID;
-
-        //1. NACIN
+        var url = "/StudentOcjene/Prikaz?sID=" + sID;
 
         //var httpReq = new XMLHttpRequest();
-        //httpReq.onreadystatechange = function () {
-        //    if (this.readyState == 4 && this.status == 200)
-        //        document.getElementById("detalji").innerHTML = httpReq.responseText;
-        //};
+        //httpReq.onload = function () {
+        //    if (this.status === 200)
+        //        document.getElementById("ocjene").innerHTML = httpReq.responseText;
+        //    else {
+        //        alert("Došlo je do greške.");
+        //    }
+        //}
         //httpReq.open("GET", url, true);
         //httpReq.send();
 
-
-        //2. NACIN
-
-        var httpReq = new XMLHttpRequest();
-        httpReq.onload = function () {
-            if (this.status === 200) 
-                document.getElementById("detalji").innerHTML = httpReq.responseText;
-            else {
-                alert("Došlo je do greške.");
-            }
-        }
-        httpReq.open("GET", url, true);
-        httpReq.send();
+        //3. NACIN - JQuery
+        $.get(url, function (sadrzaj) {
+            $("#informacije").html(sadrzaj);
+        });
     }
+
+    function PrikaziPrisustvo(sID) {
+
+        var url = "/Student/Prisustvo?sID=" + sID;
+
+        $.get(url, function (sadrzaj) {
+            $("#informacije").html(sadrzaj);
+        });
+    }
+
 </script>
 

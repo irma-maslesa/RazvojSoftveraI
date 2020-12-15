@@ -122,17 +122,21 @@ namespace _2_Vjezba.Controllers
             return Redirect(url: "/Student/Poruka");
         }
 
-        public IActionResult Detalji(int sID)
+        public IActionResult Prisustvo(int sID)
         {
             MojDBC db = new MojDBC();
-            List<StudentDetaljiVM> detalji = db.Ocjene.Where(o => o.StudentID == sID)
-                                            .Select(o => new StudentDetaljiVM
+            StudentPrisustvoVM model = new StudentPrisustvoVM();
+
+            model.Prisustva = db.PrisustvoNastavi.Where(p => p.StudentID == sID)
+                                            .Select(p => new StudentPrisustvoVM.Row
                                             {
-                                                NazivPredmeta = o.Predmet.Naziv,
-                                                OcjenaBroj = o.OcjenaBroj,
-                                                Datum = o.Datum
+                                                NazivPredmeta = p.Predmet.Naziv,
+                                                Datum = p.Datum
                                             }).ToList();
-            return View(detalji);
+            
+            model.Student = db.Student.Find(sID).Ime + " " + db.Student.Find(sID).Prezime;
+
+            return PartialView(model);
         }
     }
 }

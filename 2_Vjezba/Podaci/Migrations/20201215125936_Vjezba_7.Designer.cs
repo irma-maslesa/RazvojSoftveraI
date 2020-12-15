@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using _2_Vjezba.DBContext;
 
 namespace _2_Vjezba.Migrations
 {
     [DbContext(typeof(MojDBC))]
-    partial class MojDBCModelSnapshot : ModelSnapshot
+    [Migration("20201215125936_Vjezba_7")]
+    partial class Vjezba_7
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -1,0 +1,49 @@
+﻿@using _2_Vjezba.EntityModels
+@model List<StudentOcjenePrikazVM>
+
+@{
+    ViewData["Title"] = "Prikaz";
+}
+
+<h1 class="display-4">Ocjene studenta</h1>
+
+<br />
+<table class="table table-hover">
+    <thead class="thead-dark text-center">
+        <tr>
+            <th>Predmet</th>
+            <th>Ocjena</th>
+            <th>Datum</th>
+            <th>Opcije</th>
+        </tr>
+
+    </thead>
+
+    <tbody class="text-center">
+        @foreach (StudentOcjenePrikazVM o in Model)
+        {
+            <tr>
+                <td class="align-middle">@o.NazivPredmeta</td>
+                <td class="align-middle">@o.OcjenaBroj</td>
+                <td class="align-middle">@o.Datum.ToString("dd.MM.yyyy")</td>
+                <td>
+                    <div class="btn-group">
+                        <button class="btn btn-outline-primary col" type="button" onclick="OtvoriFormuUredi(@o.ID)">Uredi</button>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+<script>
+    function OtvoriFormuUredi(oID)
+    {
+        var url = '/StudentOcjene/Uredi?oID=' + oID;
+
+        $.get(url, function (sadrzaj) {
+            $("#informacije").html(sadrzaj);
+        });
+    }
+</script>

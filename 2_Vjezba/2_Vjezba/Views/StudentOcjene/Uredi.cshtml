@@ -1,0 +1,51 @@
+﻿@model StudentOcjeneUrediVM
+@{
+    ViewData["Title"] = "Modifikacija ocjene";
+}
+
+<h1 class="display-4">Modifikcija ocjene</h1>
+
+<form id="FormaOcjenaUredi">
+    <input readonly hidden class="form-control" asp-for="ID" />
+
+    <div class="row ml-1 mr-1">
+        <label>Student</label>
+        <input disabled class="form-control" asp-for="Student"/>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <label>Predmet</label>
+            <input disabled class="form-control" asp-for="Predmet" />
+        </div>
+        <div class="col">
+            <label>Ocjena</label>
+            <input class="form-control" min=6 max=10 asp-for="Ocjena" />
+        </div>
+    </div>
+
+    <br />
+
+    <div>
+        <input class="btn btn-dark" type="button" onClick="SnimiOcjenu()" value="Sačuvaj" />
+    </div>
+</form>
+
+<script>
+    function SnimiOcjenu() {
+        var forma = $("#FormaOcjenaUredi");
+        var url = "/StudentOcjene/Snimi";
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: forma.serialize(),
+            success: function (sadrzaj) {
+                $("#informacije").html(sadrzaj);
+            }
+        })
+
+        alert("Podaci uspješno spremljeni!");
+    }
+</script>
+
