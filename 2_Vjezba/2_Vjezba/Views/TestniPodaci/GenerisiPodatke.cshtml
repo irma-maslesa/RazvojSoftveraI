@@ -1,0 +1,14 @@
+﻿@using _2_Vjezba.EntityModels
+@using _2_Vjezba.DBContext
+
+@{
+    ViewData["Title"] = "Generisi podatke";
+    MojDBC db = new MojDBC();
+}
+
+<div class="alert alert-success text-center">Broj zapisa u tabeli Student: @db.Student.Count() </div>
+<div class="alert alert-success text-center">Broj zapisa u tabeli Predmet: @db.Predmet.Count()</div>
+<div class="alert alert-success text-center">Broj zapisa u tabeli Ocjene: @db.Ocjene.Count()</div>
+<div class="alert alert-success text-center">Broj zapisa u tabeli PrisustvoNastavi: @db.PrisustvoNastavi.Count()</div>
+
+<button class="btn btn-outline-secondary btn-lg btn-block" type="button" onclick="window.location='/Student/Prikaz'">Pogledaj listu studenata</button>

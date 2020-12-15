@@ -14,18 +14,12 @@ namespace _2_Vjezba.DBContext
         public DbSet<Student> Student { get; set; }
         public DbSet<Predmet> Predmet { get; set; }
         public DbSet<Ocjena> Ocjene { get; set; }
+        public DbSet<PrisustvoNastavi> PrisustvoNastavi { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //optionsBuilder.UseSqlServer(connectionString: @"Server = app.fit.ba,1431;
-            //                                                Database = db_irma;
-            //                                                Trusted_Connection = False;
-            //                                                User ID = db_irma;
-            //                                                Password = ^dO014fl;
-            //                                                MultipleActiveResultSets = True;");
-
             optionsBuilder.UseSqlServer(connectionString: @"Server = localhost;
-                                                            Database = RSI_V6;
+                                                            Database = RSI_V7;
                                                             Trusted_Connection = True;
                                                             MultipleActiveResultSets = True;");
         }
