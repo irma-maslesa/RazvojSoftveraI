@@ -16,6 +16,9 @@ namespace _2_Vjezba.Controllers
     {
         public IActionResult Prikaz(string filter)
         {
+            if (HttpContext.GetLogiraniKorisnik() == null)
+                return Redirect("/Autentifikacija/Prijava");
+
             MojDBC db = new MojDBC();
 
             StudentPrikazVM model = new StudentPrikazVM();
@@ -44,6 +47,9 @@ namespace _2_Vjezba.Controllers
 
         public IActionResult DodajUredi(int sID)
         {
+            if (HttpContext.GetLogiraniKorisnik() == null)
+                return Redirect("/Autentifikacija/Prijava");
+
             MojDBC db = new MojDBC();
 
             List<SelectListItem> opcine = db.Opcina
@@ -74,6 +80,9 @@ namespace _2_Vjezba.Controllers
 
         public IActionResult Snimi(StudentDodajUrediVM s)
         {
+            if (HttpContext.GetLogiraniKorisnik() == null)
+                return Redirect("/Autentifikacija/Prijava");
+
             MojDBC db = new MojDBC();
 
             Student student;
@@ -106,11 +115,17 @@ namespace _2_Vjezba.Controllers
 
         public IActionResult Poruka(int sID)
         {
+            if (HttpContext.GetLogiraniKorisnik() == null)
+                return Redirect("/Autentifikacija/Prijava");
+
             return View();
         }
 
         public IActionResult Obrisi(int sID)
         {
+            if (HttpContext.GetLogiraniKorisnik() == null)
+                return Redirect("/Autentifikacija/Prijava");
+
             MojDBC db = new MojDBC();
             Student s = db.Student.Find(sID);
 
@@ -120,23 +135,6 @@ namespace _2_Vjezba.Controllers
             TempData["Poruka"] = $"Uspješno ste obrisali studenta {s.Ime} {s.Prezime} ({s.BrojIndeksa})";
 
             return Redirect(url: "/Student/Poruka");
-        }
-
-        public IActionResult Prisustvo(int sID)
-        {
-            MojDBC db = new MojDBC();
-            StudentPrisustvoVM model = new StudentPrisustvoVM();
-
-            model.Prisustva = db.PrisustvoNastavi.Where(p => p.StudentID == sID)
-                                            .Select(p => new StudentPrisustvoVM.Row
-                                            {
-                                                NazivPredmeta = p.Predmet.Naziv,
-                                                Datum = p.Datum
-                                            }).ToList();
-            
-            model.Student = db.Student.Find(sID).Ime + " " + db.Student.Find(sID).Prezime;
-
-            return PartialView(model);
         }
     }
 }

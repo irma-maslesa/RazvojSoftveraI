@@ -1,0 +1,59 @@
+﻿@model StudentPrisustvoUrediVM
+@{
+    ViewData["Title"] = "Modifikacija prisustva";
+}
+
+<h1 class="display-4">Modifikcija prisustva</h1>
+
+<form id="FormaPrisustvoUredi">
+    <input readonly hidden class="form-control" asp-for="ID" />
+
+    <div class="row">
+        <div class="col">
+            <label>Student</label>
+            <input disabled class="form-control" asp-for="Student" />
+        </div>
+        <div class="col">
+            <label>Predmet</label>
+            <input disabled class="form-control" asp-for="Predmet" />
+        </div>
+    </div>
+
+    <br/>
+
+    <div class="row">
+        <div class="col-1">
+            <label>Prisutan</label>
+            <input class="form-control" asp-for="IsPrisutan" />
+        </div>
+        <div class="col">
+            <label>Komentar</label>
+            <input class="form-control" asp-for="Komentar" />
+        </div>
+    </div>
+
+    <br />
+
+    <div>
+        <input class="btn btn-dark" type="button" onClick="SnimiPrisustvo()" value="Sačuvaj" />
+    </div>
+</form>
+
+<script>
+    function SnimiPrisustvo() {
+        var forma = $("#FormaPrisustvoUredi");
+        var url = "/StudentPrisustvo/Snimi";
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: forma.serialize(),
+            success: function (sadrzaj) {
+                $("#informacije").html(sadrzaj);
+            }
+        })
+
+        alert("Podaci uspješno spremljeni!");
+    }
+</script>
+
