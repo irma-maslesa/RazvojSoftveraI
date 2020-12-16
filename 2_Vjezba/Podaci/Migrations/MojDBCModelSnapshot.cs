@@ -19,6 +19,24 @@ namespace _2_Vjezba.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.1");
 
+            modelBuilder.Entity("Podaci.EntityModels.KorisnickiNalog", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("KorisnickoIme")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Lozinka")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("KorisnickiNalog");
+                });
+
             modelBuilder.Entity("Podaci.EntityModels.Ocjena", b =>
                 {
                     b.Property<int>("ID")
@@ -71,6 +89,12 @@ namespace _2_Vjezba.Migrations
 
                     b.Property<DateTime>("Datum")
                         .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsPrisutan")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Komentar")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("PredmetID")
                         .HasColumnType("int");

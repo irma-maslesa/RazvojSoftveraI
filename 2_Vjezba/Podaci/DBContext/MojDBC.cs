@@ -15,11 +15,12 @@ namespace _2_Vjezba.DBContext
         public DbSet<Predmet> Predmet { get; set; }
         public DbSet<Ocjena> Ocjene { get; set; }
         public DbSet<PrisustvoNastavi> PrisustvoNastavi { get; set; }
+        public DbSet<KorisnickiNalog> KorisnickiNalog { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(connectionString: @"Server = localhost;
-                                                            Database = RSI_V7;
+                                                            Database = RSI_V8;
                                                             Trusted_Connection = True;
                                                             MultipleActiveResultSets = True;");
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using _2_Vjezba.DBContext;
+using _2_Vjezba.Helper;
 using _2_Vjezba.Models;
 using Microsoft.AspNetCore.Mvc;
 using Podaci.EntityModels;
@@ -15,6 +16,8 @@ namespace _2_Vjezba.Controllers
 
         public IActionResult Prikaz(int sID)
         {
+            if (HttpContext.GetLogiraniKorisnik() == null)
+                return Redirect("/Autentifikacija/Prijava");
 
             List<StudentOcjenePrikazVM> ocjene = db.Ocjene.Where(o => o.StudentID == sID)
                                             .Select(o => new StudentOcjenePrikazVM
@@ -28,6 +31,9 @@ namespace _2_Vjezba.Controllers
         }
         public IActionResult Uredi(int oID)
         {
+            if (HttpContext.GetLogiraniKorisnik() == null)
+                return Redirect("/Autentifikacija/Prijava");
+
             StudentOcjeneUrediVM model = db.Ocjene.Where(o => o.ID == oID)
                             .Select(o => new StudentOcjeneUrediVM
                             {
@@ -45,15 +51,15 @@ namespace _2_Vjezba.Controllers
 
         public IActionResult Snimi(StudentOcjeneUrediVM o)
         {
+            if (HttpContext.GetLogiraniKorisnik() == null)
+                return Redirect("/Autentifikacija/Prijava");
+
             Ocjena ocjena = db.Ocjene.Find(o.ID);
             ocjena.OcjenaBroj = o.Ocjena;
 
             db.SaveChanges();
 
             return Redirect("/StudentOcjene/Prikaz?sID=" + ocjena.StudentID);
-
-            //2. NAČIN
-            //return RedirectToAction("Prikaz", new { sID = ocjena.ID });
         }
 
     }

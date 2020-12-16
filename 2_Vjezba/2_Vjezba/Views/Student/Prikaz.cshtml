@@ -70,18 +70,6 @@
 
         var url = "/StudentOcjene/Prikaz?sID=" + sID;
 
-        //var httpReq = new XMLHttpRequest();
-        //httpReq.onload = function () {
-        //    if (this.status === 200)
-        //        document.getElementById("ocjene").innerHTML = httpReq.responseText;
-        //    else {
-        //        alert("Došlo je do greške.");
-        //    }
-        //}
-        //httpReq.open("GET", url, true);
-        //httpReq.send();
-
-        //3. NACIN - JQuery
         $.get(url, function (sadrzaj) {
             $("#informacije").html(sadrzaj);
         });
@@ -89,12 +77,13 @@
 
     function PrikaziPrisustvo(sID) {
 
-        var url = "/Student/Prisustvo?sID=" + sID;
+        var url = "/StudentPrisustvo/Prikaz?sID=" + sID;
 
         $.get(url, function (sadrzaj) {
             $("#informacije").html(sadrzaj);
         });
     }
 
+    
 </script>
 

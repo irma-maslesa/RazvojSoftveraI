@@ -27,9 +27,7 @@
                 <td class="align-middle">@o.OcjenaBroj</td>
                 <td class="align-middle">@o.Datum.ToString("dd.MM.yyyy")</td>
                 <td>
-                    <div class="btn-group">
-                        <button class="btn btn-outline-primary col" type="button" onclick="OtvoriFormuUredi(@o.ID)">Uredi</button>
-                    </div>
+                    <button class="btn btn-outline-primary col" type="button" onclick="OtvoriFormuUrediOcjenu(@o.ID)">Uredi</button>
                 </td>
             </tr>
         }
@@ -38,8 +36,7 @@
 </table>
 
 <script>
-    function OtvoriFormuUredi(oID)
-    {
+    function OtvoriFormuUrediOcjenu(oID) {
         var url = '/StudentOcjene/Uredi?oID=' + oID;
 
         $.get(url, function (sadrzaj) {

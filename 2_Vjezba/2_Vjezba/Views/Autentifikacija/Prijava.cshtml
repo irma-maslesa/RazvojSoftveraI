@@ -1,0 +1,45 @@
+﻿@model AutentifikacijaPrijavaVM
+@{
+    ViewData["Title"] = "Prijava";
+    string greska = (string)TempData["porukaGreska"];
+}
+
+<h1 class="display-3">Prijava</h1>
+
+<form asp-action="ProvjeraPrijave" asp-controller="Autentifikacija">
+    <input readonly hidden class="form-control" asp-for="ID" />
+
+    <div class="row">
+        <div class="col-5">
+            <label>Korisničko ime</label>
+            <input class="form-control" asp-for="KorisnickoIme" />
+            <span class="text-danger" asp-validation-for="KorisnickoIme"></span>
+        </div>
+    </div>
+
+    <br />
+
+    <div class="row">
+        <div class="col-5">
+            <label>Lozinka</label>
+            <input class="form-control" type="password" asp-for="Lozinka" />
+            <span class="text-danger" asp-validation-for="Lozinka"></span>
+        </div>
+    </div>
+
+    <br />
+
+    <div>
+    <input class="btn btn-dark" type="submit" value="Prijavi se" />
+    </div>
+</form>
+
+
+<br />
+
+@if (greska != null)
+{
+    <div class="alert alert-danger">
+            @greska
+    </div>
+}
