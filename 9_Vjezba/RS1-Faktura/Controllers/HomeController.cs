@@ -1,8 +1,7 @@
 ﻿using System.Linq;
 using Microsoft.AspNetCore.Mvc;
-using RS1.Ispit.Web.EF;
 
-namespace RS1.Ispit.Web.Controllers
+namespace RS1_Faktura.Controllers
 {
     public class HomeController : Controller
     {
@@ -13,6 +12,6 @@ namespace RS1.Ispit.Web.Controllers
             return View();
         }
 
-       
+
     }
 }

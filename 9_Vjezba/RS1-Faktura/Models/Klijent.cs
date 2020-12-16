@@ -1,4 +1,4 @@
-﻿namespace RS1.Ispit.Web.Models
+﻿namespace RS1_Faktura.Models
 {
     public class Klijent
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RS1.Ispit.Web.Models
+namespace RS1_Faktura.Models
 {
     public class KatalogStavka
     {
@@ -11,7 +11,7 @@ namespace RS1.Ispit.Web.Models
 
         public virtual AkcijskiKatalog AkcijskiKatalog { get; set; }
         public int AkcijskiKatalogId { get; set; }
-    
+
         public float PopustProcenat { get; set; }
     }
 }
