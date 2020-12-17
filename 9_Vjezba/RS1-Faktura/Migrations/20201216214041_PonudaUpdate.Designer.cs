@@ -10,8 +10,8 @@ using RS1_Faktura.EF;
 namespace RS1_Faktura.Migrations
 {
     [DbContext(typeof(MojContext))]
-    [Migration("20201216121428_Inicijalna")]
-    partial class Inicijalna
+    [Migration("20201216214041_PonudaUpdate")]
+    partial class PonudaUpdate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -140,10 +140,15 @@ namespace RS1_Faktura.Migrations
                     b.Property<DateTime>("Datum")
                         .HasColumnType("datetime2");
 
+                    b.Property<int?>("FakturaID")
+                        .HasColumnType("int");
+
                     b.Property<int>("KlijentId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("FakturaID");
 
                     b.HasIndex("KlijentId");
 
@@ -247,11 +252,17 @@ namespace RS1_Faktura.Migrations
 
             modelBuilder.Entity("RS1_Faktura.Models.Ponuda", b =>
                 {
+                    b.HasOne("RS1_Faktura.Models.Faktura", "Faktura")
+                        .WithMany()
+                        .HasForeignKey("FakturaID");
+
                     b.HasOne("RS1_Faktura.Models.Klijent", "Klijent")
                         .WithMany()
                         .HasForeignKey("KlijentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Faktura");
 
                     b.Navigation("Klijent");
                 });

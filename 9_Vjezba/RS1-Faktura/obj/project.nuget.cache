@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "K0x8/YBavArFaRyFbe6KVrvrFur0olFj7TR/CEzocyqmD/vFF0EV7ZaarD60NKqJ0b3SoTp4pxnZikJbpEkJlA==",
+  "dgSpecHash": "CkACvsTUdj+mJMYDJVR30wGWPzz8qgjV65p9OUsym/gr8rwiu4jXRBDZdSMHSKgwUiRHgcnxmk4VnEnse/slNg==",
   "success": true,
-  "projectFilePath": "D:\\OneDrive - Faculty of Information Technologies\\Desktop\\FAKTURA\\RS1-Faktura\\RS1-Faktura\\RS1-Faktura.csproj",
+  "projectFilePath": "D:\\OneDrive - Faculty of Information Technologies\\Desktop\\RazvojSoftveraI\\9_Vjezba\\RS1-Faktura\\RS1-Faktura.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Irma Masleša\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Irma Masleša\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",

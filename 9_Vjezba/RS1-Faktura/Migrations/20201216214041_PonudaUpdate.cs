@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace RS1_Faktura.Migrations
 {
-    public partial class Inicijalna : Migration
+    public partial class PonudaUpdate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -70,26 +70,6 @@ namespace RS1_Faktura.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Ponuda",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    KlijentId = table.Column<int>(type: "int", nullable: false),
-                    Datum = table.Column<DateTime>(type: "datetime2", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Ponuda", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Ponuda_Klijent_KlijentId",
-                        column: x => x.KlijentId,
-                        principalTable: "Klijent",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "KatalogStavka",
                 columns: table => new
                 {
@@ -140,6 +120,33 @@ namespace RS1_Faktura.Migrations
                         name: "FK_FakturaStavka_Proizvod_ProizvodId",
                         column: x => x.ProizvodId,
                         principalTable: "Proizvod",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Ponuda",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    KlijentId = table.Column<int>(type: "int", nullable: false),
+                    Datum = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    FakturaID = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Ponuda", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Ponuda_Faktura_FakturaID",
+                        column: x => x.FakturaID,
+                        principalTable: "Faktura",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Ponuda_Klijent_KlijentId",
+                        column: x => x.KlijentId,
+                        principalTable: "Klijent",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -198,6 +205,11 @@ namespace RS1_Faktura.Migrations
                 column: "ProizvodId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Ponuda_FakturaID",
+                table: "Ponuda",
+                column: "FakturaID");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Ponuda_KlijentId",
                 table: "Ponuda",
                 column: "KlijentId");
@@ -225,9 +237,6 @@ namespace RS1_Faktura.Migrations
                 name: "PonudaStavka");
 
             migrationBuilder.DropTable(
-                name: "Faktura");
-
-            migrationBuilder.DropTable(
                 name: "AkcijskiKatalog");
 
             migrationBuilder.DropTable(
@@ -235,6 +244,9 @@ namespace RS1_Faktura.Migrations
 
             migrationBuilder.DropTable(
                 name: "Proizvod");
+
+            migrationBuilder.DropTable(
+                name: "Faktura");
 
             migrationBuilder.DropTable(
                 name: "Klijent");

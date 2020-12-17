@@ -1,0 +1,39 @@
+﻿@using RS1_Faktura.ViewModels
+@model FakturaStavkaPrikazVM
+
+@{
+    ViewData["Title"] = "Prikaz detalja o fakturi";
+}
+
+<br />
+
+<table class="table table-hover">
+    <thead class="thead-dark text-center">
+        <tr>
+            <th>Proizvod</th>
+            <th>Cijena</th>
+            <th>Kolicina</th>
+            <th>Popust</th>
+            <th>Iznos</th>
+            <th>Akcija</th>
+        </tr>
+    </thead>
+    <tbody class="text-center">
+        @foreach (FakturaStavkaPrikazVM.Row fs in Model.Stavke)
+        {
+            <tr>
+                <td class="align-middle">@fs.Proizvod</td>
+                <td class="align-middle">@fs.Cijena KM</td>
+                <td class="align-middle">@fs.Kolicina</td>
+                <td class="align-middle">@fs.Popust %</td>
+                <td class="align-middle">@fs.Iznos KM</td>
+                <td>
+                    <div class="btn-group">
+                        <button class="btn btn-outline-info col mr-1" type="button" onclick="window.location='/FakturaStavka/Obrisi?fID=@fs.ID'">Obriši</button>
+                        <button class="btn btn-outline-info col" type="button" onclick="window.location='/FakturaStavka/Detalji?fID=@fs.ID'">Detalji</button>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

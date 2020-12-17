@@ -11,5 +11,8 @@ namespace RS1_Faktura.Models
         public int KlijentId { get; set; }
 
         public DateTime Datum { get; set; }
+
+        public int? FakturaID { get; set; }
+        public Faktura Faktura { get; set; }
     }
 }

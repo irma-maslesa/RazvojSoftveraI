@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\OneDrive - Faculty of Information Technologies\\Desktop\\FAKTURA\\RS1-Faktura\\RS1-Faktura\\RS1-Faktura.csproj": {}
+    "D:\\OneDrive - Faculty of Information Technologies\\Desktop\\RazvojSoftveraI\\9_Vjezba\\RS1-Faktura\\RS1-Faktura.csproj": {}
   },
   "projects": {
-    "D:\\OneDrive - Faculty of Information Technologies\\Desktop\\FAKTURA\\RS1-Faktura\\RS1-Faktura\\RS1-Faktura.csproj": {
+    "D:\\OneDrive - Faculty of Information Technologies\\Desktop\\RazvojSoftveraI\\9_Vjezba\\RS1-Faktura\\RS1-Faktura.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\OneDrive - Faculty of Information Technologies\\Desktop\\FAKTURA\\RS1-Faktura\\RS1-Faktura\\RS1-Faktura.csproj",
+        "projectUniqueName": "D:\\OneDrive - Faculty of Information Technologies\\Desktop\\RazvojSoftveraI\\9_Vjezba\\RS1-Faktura\\RS1-Faktura.csproj",
         "projectName": "RS1-Faktura",
-        "projectPath": "D:\\OneDrive - Faculty of Information Technologies\\Desktop\\FAKTURA\\RS1-Faktura\\RS1-Faktura\\RS1-Faktura.csproj",
+        "projectPath": "D:\\OneDrive - Faculty of Information Technologies\\Desktop\\RazvojSoftveraI\\9_Vjezba\\RS1-Faktura\\RS1-Faktura.csproj",
         "packagesPath": "C:\\Users\\Irma Masleša\\.nuget\\packages\\",
-        "outputPath": "D:\\OneDrive - Faculty of Information Technologies\\Desktop\\FAKTURA\\RS1-Faktura\\RS1-Faktura\\obj\\",
+        "outputPath": "D:\\OneDrive - Faculty of Information Technologies\\Desktop\\RazvojSoftveraI\\9_Vjezba\\RS1-Faktura\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
