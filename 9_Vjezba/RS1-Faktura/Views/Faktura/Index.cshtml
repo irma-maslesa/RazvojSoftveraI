@@ -1,0 +1,45 @@
+﻿@using RS1_Faktura.ViewModels
+@model FakturaPrikazVM
+
+@{
+    ViewData["Title"] = "Prikaz fakture";
+}
+
+<div class="row">
+    <div class="col-5">
+        <button class="btn btn-dark" onclick="window.location='/Faktura/Dodaj'">Dodaj fakturu</button>
+    </div>
+</div>
+
+<br />
+
+<table class="table table-hover">
+    <thead class="thead-dark text-center">
+        <tr>
+            <th>Faktura ID</th>
+            <th>Datum</th>
+            <th>Klijent</th>
+            <th>Opcije</th>
+        </tr>
+    </thead>
+    <tbody class="text-center">
+        @foreach (FakturaPrikazVM.Row f in Model.Fakture)
+        {
+            <tr>
+                <td class="align-middle">@f.ID</td>
+                <td class="align-middle">@f.Datum.ToString("dd.MM.yyyy HH:mm")  </td>
+                <td class="align-middle">@f.Klijent</td>
+                <td>
+                    <div class="btn-group">
+                        @*<button class="btn btn-outline-info col" type="button" asp-action="Obrisi" asp-route-fID="@f.ID">Obriši</button>*@
+                        <button class="btn btn-outline-info col mr-1" type="button" onclick="window.location='/Faktura/Obrisi?fID=@f.ID'">Obriši</button>
+                        <button class="btn btn-outline-info col" type="button" onclick="window.location='/Faktura/Detalji?fID=@f.ID'">Detalji</button>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+

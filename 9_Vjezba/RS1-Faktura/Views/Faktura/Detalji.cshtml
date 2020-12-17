@@ -1,0 +1,36 @@
+﻿@using RS1_Faktura.ViewModels
+@model FakturaDetaljiVM
+
+@{
+    ViewData["Title"] = "Detalji fakture";
+}
+
+<h1 class="display-4">Faktura @Model.ID</h1>
+
+<form>
+    <div class="row">
+        <div class="col-5">
+            <label>Klijent</label>
+            <input readonly class="form-control" asp-for="Klijent" />
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-5">
+            <label>Datum</label>
+            <input readonly class="form-control" asp-for="Datum" />
+        </div>
+    </div>
+</form>
+
+<div id="Detalji"></div>
+
+<script>
+    var url = "/FakturaStavka/Index?fID=" + @Model.ID;
+
+    
+    $.get(url, function (sadrzaj) {
+        $("#Detalji").html(sadrzaj);
+    });
+
+</script>

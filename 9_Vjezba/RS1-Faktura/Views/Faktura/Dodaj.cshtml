@@ -1,0 +1,35 @@
+﻿@using RS1_Faktura.ViewModels
+@model FakturaDodajVM
+@{
+    ViewData["Title"] = "Dodavanje fakture";
+}
+
+<form asp-action="Snimi" asp-controller="Faktura">
+    <div class="row">
+        <div class="col">
+            <label>Klijent</label>
+            <select class="form-control" asp-for="KlijentID" asp-items="Model.Klijenti"></select>
+        </div>
+        <div class="col">
+            <label>Ponuda</label>
+            <select class="form-control" asp-for="PonudaID" asp-items="Model.Ponude"></select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-5">
+            <label>Datum</label>
+            <input class="form-control" asp-for="Datum" />
+        </div>
+    </div>
+    <br />
+
+    <div>
+        <input class="btn btn-dark" type="submit" value="Sačuvaj" />
+    </div>
+</form>
+
+<br />
+
+<button class="btn btn-outline-secondary" onclick="window.location='/Faktura/Index'">Odustani</button>
+
+
